@@ -28,7 +28,42 @@ source_license: MIT
 - 通用 C#/.NET 后端、纯算法题 → 用研发卷对应技能；本技能聚焦 Unity 运行时与编辑器特性。
 - 不替代真机实测：任何结论都需在目标硬件上验证，不臆断帧率。
 
-## 步骤 / 指令
+## 按游戏类型选择框架
+
+下表是起始候选，不代表唯一或永久排名。框架的维护状态、Unity 版本支持、依赖和价格会变化；项目定型前核实产品页面与文档，并在目标 Unity 版本建立空白测试项目验证导入和构建。
+
+| 游戏类型 | 优先评估 | 适用范围与边界 |
+|---|---|---|
+| 2D 横版平台跳跃、跑轰 | [Corgi Engine](https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617) | 提供 2D/2.5D 角色控制、跳跃、攀爬、武器、伤害与示例关卡。适合横版动作和类银河恶魔城；以它的角色控制和系统为基础，玩法仍需按项目定制。商店页面列有 Unity 6 支持。 |
+| 2D/3D 俯视角动作 | [TopDown Engine](https://assetstore.unity.com/packages/templates/systems/topdown-engine-89636) | 提供俯视角角色控制、武器、伤害、瞄准、冲刺和游戏反馈系统。适合双摇杆射击、俯视动作和轻量探索游戏；商店页面列有 Unity 6 支持。 |
+| 第一人称、第三人称动作或射击 | [Opsive Ultimate Character Controller](https://opsive.com/assets/ultimate-character-controller/) | 属于角色控制与能力系统，覆盖移动、动画、物品和战斗能力，可扩展到射击、近战和冒险项目。它不是完整 FPS 游戏框架；选用前核实目标 Unity 版本、输入系统和所需集成。 |
+| 2D/3D RPG | [ORK Framework](https://orkframework.com/) | 覆盖回合制、ATB、即时战斗和阶段战斗，并提供角色状态、物品、装备、任务、对话等 RPG 系统。ORK 4 要求 Unity 6.3 或更新版本；旧项目需根据版本选择 ORK 3，并验证迁移成本。 |
+| 点击式冒险、剧情解谜 | [Adventure Creator](https://adventurecreator.org/) | 支持 2D、2.5D 和 3D，提供视觉脚本、交互、谜题、物品栏、对话和场景管理。适合以探索和剧情推进为主的冒险游戏；可用 C# 扩展专用机制。 |
+| 视觉小说、文字冒险 | [Naninovel](https://naninovel.com/guide/index) | 提供文本脚本语言、故事编辑器、对话和叙事功能，适合分支剧情、视觉小说和过场叙事。自定义玩法或第三方集成通常还需要 C#。 |
+| 即时战略 | [Unity RTS Engine](https://docs.gamedevspice.com/rtsengine/) | 包含单位、建筑、资源和指令等 RTS 系统，可通过模块扩展。部分文档较早，正式采用前需检查当前 Unity 版本、模块兼容性及联机实现。 |
+| 塔防 | [Tower Defense Starter Kit](https://marketplace.unity.com/packages/tools/game-toolkits/tower-defense-starter-kit-128727) | 提供路径编辑、敌人波次、防御塔放置和基础界面，适合快速建立塔防玩法。商品页列有 Unity 6.0 至 6.6 兼容信息；若项目依赖 TDTK-4 的特定功能，另行验证其版本兼容性。 |
+| 赛车 | [Racing Game Starter Kit](https://assetstore.unity.com/packages/templates/systems/racing-game-starter-kit-22615)，搭配车辆物理系统 | RGSK 提供比赛流程、圈数和名次、AI、回放、锦标赛与界面；车辆物理可按玩法比较 [NWH Vehicle Physics 2](https://assetstore.unity.com/packages/tools/physics/nwh-vehicle-physics-2) 和 [Realistic Car Controller Pro](https://assetstore.unity.com/packages/tools/physics/realistic-car-controller-pro-178967)。RGSK 与车辆物理解决不同问题，需核对各自的接口和许可。 |
+| 生存、采集、制作、建造 | [Survival Engine](https://assetstore.unity.com/packages/templates/systems/survival-engine-crafting-building-farming-178160) | 提供背包、制作、建造、采集、战斗与存档等基础系统，适合生存冒险原型和模拟玩法。开放世界项目需重点验证存档规模、寻路、网络同步和内容流送能力。 |
+| 农场与生活模拟 | [Farming Engine](https://assetstore.unity.com/packages/templates/systems/farming-engine-191881) | 包含种植、牲畜、背包、制作、建造和存档系统，适合农场经营原型。复杂经济、日历和长周期模拟通常需要扩展现有数据模型。 |
+| 三消益智 | [MK Match-3 Kit](https://assetstore.unity.com/packages/templates/systems/mk-match-3-kit-candy-sweet-game-template-275837) | 完整三消模板，商品介绍列有多个关卡、地图、编辑器、道具及移动端变现功能。适合快速验证经典交换消除玩法；需要检查目标平台 SDK 和变现组件。 |
+| 传统格子 Roguelike | [Ultimate Roguelike Framework](https://assetstore.unity.com/packages/tools/game-toolkits/ultimate-roguelike-framework-traditional-roguelike-starter-kit-363050) | 面向 Unity 6 的网格制 Roguelike 基础，适合回合制移动、地牢探索和单局流程。动作型 Roguelite 通常更适合从角色控制或俯视角框架开始。 |
+| 卡牌构筑、卡牌 Roguelike | [Game Card System](https://assetstore.unity.com/packages/templates/systems/game-card-system-gcs-396692) | 提供卡牌战斗运行时、统一数据管理和 FlowGraph 可视化编辑，适合卡牌构筑和战斗玩法。复杂规则、服务器验证和牌组平衡仍由项目实现。 |
+| 音乐节奏游戏 | [Rhythm Game Starter](https://www.rhythm.game/) | 提供 MIDI 导入、谱面制作和序列编辑工具，并按音频时钟同步节奏。适合轨道式和下落式音游；需针对目标设备测量输入延迟并提供玩家校准。 |
+
+### 联机框架
+
+联机框架负责网络同步、连接和权威模型，本身不替代玩法框架。先确定玩家规模、服务器权威、延迟敏感度、主机模式或专用服务器，以及托管预算，再选择网络层。
+
+| 网络方案 | 适用场景 | 选择依据 |
+|---|---|---|
+| [Netcode for GameObjects](https://docs.unity.com/en-us/multiplayer/netcode/netcode) | 小规模合作游戏，或为现有 GameObject/MonoBehaviour 项目增加联网 | Unity 官方方案，与 Unity Multiplayer Services、Relay 等配合；适合先建立基础联机。 |
+| [Photon Fusion 2](https://doc.photonengine.com/fusion/v2/fusion-intro) | 对状态同步和实时响应要求较高的动作或竞技玩法 | 支持 Shared、Host 和 Server 等拓扑；确认 Photon 服务、托管方式和用量费用符合项目预算。 |
+| [FishNet](https://fish-networking.gitbook.io/docs/overview/readme/features) | 需要客户端预测和较多网络功能的 GameObject 项目 | 提供预测、回滚相关功能和多种传输层；检查当前 Unity 兼容性，并规划服务器与中继服务。 |
+| [Netcode for Entities](https://docs.unity.com/en-us/multiplayer/netcode/netcode) | 已采用 ECS/DOTS、需要高吞吐数据导向架构的多人项目 | 与 Entities 技术栈配套，适合愿意承担 ECS 学习与工具链成本的团队；与传统 GameObject 工程的代码结构差异较大。 |
+
+大型 MMO、持久化世界或跨区服务通常需要独立的服务器模拟、数据库、匹配和运维架构。单独安装联网 SDK 无法提供完整 MMO 服务端。
+
+## 开发步骤 / 指令
 
 ```
 1. 厘清目标与约束（先问后做）
@@ -45,6 +80,7 @@ source_license: MIT
    - 数据驱动用 ScriptableObject；状态用状态机；解耦用事件/观察者。
    - 高频实例化（子弹、特效、敌人）用对象池，杜绝运行时频繁 new/Destroy。
    - 海量同质实体（大规模战斗/集群）才上 DOTS-ECS + Job System + Burst；小项目别滥用。
+   - 根据「按游戏类型选择框架」选择候选工具包；先确认版本、管线、依赖、许可和扩展方式，再决定是否采用。
 
 4. 性能优化（Profiler 驱动，先测后改）
    - 用 Unity Profiler 定位是 CPU / GPU / 内存 哪一类瓶颈，再针对性优化。
@@ -58,7 +94,8 @@ source_license: MIT
    - 大资源用 Git LFS；规划资源目录与依赖，防循环引用。
 
 6. 联机（如需要）
-   - 优先 Netcode for GameObjects；做客户端-服务器同步与延迟补偿；按需接 Relay/Lobby/专用服务器。
+   - 按玩家规模、权威模型和延迟要求比较 Netcode for GameObjects、Photon Fusion、FishNet 或 Netcode for Entities。
+   - 做客户端-服务器同步与延迟补偿；按需接 Relay/Lobby/专用服务器。
 
 7. 测试与打包
    - 用 Unity Test Framework 写 EditMode/PlayMode 测试；做内存泄漏与性能回归基线。
@@ -70,6 +107,7 @@ source_license: MIT
 - 性能从工程伊始就纳入设计，而非后期补救；但优化必须 Profiler 先行，不靠猜。
 - 给生产级 C#：含错误处理与日志，遵循 Unity 命名/编码规范。
 - 每个方案显式标注目标平台限制与取舍。
+- 推荐商业扩展时，注明其属于第三方工具，并以官方商品页和文档确认版本、依赖、许可与价格；不把厂商宣传语当作独立评测结论。
 
 ## 示例
 
@@ -115,6 +153,7 @@ var pool = new ObjectPool<Bullet>(
 - 字符串拼接、`Find`/`GetComponent` 放在热路径、未缓存的 `Camera.main`、装箱、闭包捕获都是常见 GC 来源，逐一排查。
 - 跨平台输入统一用新版 Input System，勿混用旧 Input Manager。
 - 大资源进 Git 前配好 Git LFS，否则仓库迅速膨胀且难回退。
+- 第三方框架可能限制 Unity 版本、渲染管线、平台或与其他插件的组合；先用小型验证场景检查核心玩法，再纳入主项目。
 
 ## 互见
 
