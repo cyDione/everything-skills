@@ -93,6 +93,21 @@ Unity 场景与 Prefab 是可视化编辑资产。CLI、MCP 或脚本可以辅�
 | 卡牌构筑、卡牌 Roguelike | [Game Card System](https://assetstore.unity.com/packages/templates/systems/game-card-system-gcs-396692) | 提供卡牌战斗运行时、统一数据管理和 FlowGraph 可视化编辑，适合卡牌构筑和战斗玩法。复杂规则、服务器验证和牌组平衡仍由项目实现。 |
 | 音乐节奏游戏 | [Rhythm Game Starter](https://www.rhythm.game/) | 提供 MIDI 导入、谱面制作和序列编辑工具，并按音频时钟同步节奏。适合轨道式和下落式音游；需针对目标设备测量输入延迟并提供玩家校准。 |
 
+### 通用游戏架构框架
+
+以下项目承担的是不同层次的职责，不能仅按“框架”名称作同类排名。GameFramework、ET 与 QFramework 提供项目架构或游戏模块；DOTS 是 Unity 的数据导向技术栈，Entities ECS 只是其中一部分。
+
+| 项目 | 定位与优势 | 适用游戏与限制 |
+|---|---|---|
+| [Unity Game Framework](https://github.com/EllanJiang/UnityGameFramework) | 基于 Unity 的通用游戏框架，内置流程、资源、场景、界面、网络、事件、对象池、本地化、声音和数据表等模块；MIT 许可。 | 适合需要较完整客户端模块体系、异步资源管理和流程组织的中大型 GameObject 项目。上游仓库提交记录较早，评估时需核对目标 Unity 版本、维护状态及社区扩展。 |
+| [ET](https://github.com/egametang/ET) | Unity 客户端与 C# 服务端框架，面向 Actor、Fiber、分布式服务器、多进程和热更新，也包含测试及机器人支持。 | 适合 MMO、持久化在线游戏和需要共享客户端服务端逻辑的团队。学习、部署与架构约束较多；当前 ET10 许可证要求商业产品发布前取得授权，标价为人民币 4999 元，并限制自行修改后再开源；第三方商业插件另行授权。采用前须逐项核对许可证和依赖。 |
+| [QFramework](https://github.com/liangxiegame/QFramework) | 轻量分层架构，以 ViewController、System、Model、Utility、Command 和 Event 组织表现、业务逻辑与数据；提供可选 UIKit、ResKit、AudioKit 等工具包；MIT 许可。 | 适合独立游戏及小中型单机项目，也适合希望保留 MonoBehaviour、场景和 Prefab 可视化编辑方式的团队。区分核心架构与工具包，并按需引入；工具包依赖需检查。 |
+| [Unity DOTS / Entities](https://unity.com/dots) | 数据导向技术栈，包括 Entities ECS、Burst 编译器和 C# Job System；可与 GameObject 并用。Unity 官方示例覆盖实体、物理、图形及 Netcode for Entities。 | 适合 RTS、大量单位、城市模拟、群体 AI、复杂物理或高吞吐仿真。它不提供完整玩法、内容生产或通用服务端架构；采用前确认 Unity 与 Entities 包版本，并用性能分析证明关键负载适合 ECS。 |
+
+按类型选择时，轻量 2D、解谜、剧情、卡牌和单机 Roguelite 可先用 Unity 原生 GameObject 结构，或采用 QFramework 核心分层；需要现成流程、资源及界面模块时再评估 GameFramework。大型在线 RPG、MMO 和长期运营游戏可评估 ET，并将授权条件列入立项决策。RTS、大规模群体、城市建造和仿真项目可把 DOTS 用于实体密集的模拟部分，继续用 GameObject、场景和 Prefab 管理关卡、角色表现与 UI。小规模房间制联机可选 Netcode for GameObjects；采用 ECS 且需要服务端权威与客户端预测时，再评估 Netcode for Entities。联网库不能替代完整 MMO 后端。
+
+框架选型应结合玩法规模、团队经验、内容编辑方式、目标平台、Unity 与包版本、维护状态、许可、网络拓扑和迁移成本。优先通过小型验证场景测试核心循环、场景编辑、Prefab/UI、构建及目标设备性能，再确定是否扩大使用范围。上述候选链接用于核验来源，不代表本技能已安装或验证插件；插件缺失时遵守「插件依赖门槛」。
+
 ### 联机框架
 
 联机框架负责网络同步、连接和权威模型，本身不替代玩法框架。先确定玩家规模、服务器权威、延迟敏感度、主机模式或专用服务器，以及托管预算，再选择网络层。
