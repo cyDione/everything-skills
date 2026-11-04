@@ -18,7 +18,7 @@
 | 生存、采集、制作、建造 | [Survival Engine](https://assetstore.unity.com/packages/templates/systems/survival-engine-crafting-building-farming-178160) | 提供背包、制作、建造、采集、战斗与存档等基础系统，适合生存冒险原型和模拟玩法。开放世界项目重点验证存档规模、寻路、网络同步和内容流送能力。 |
 | 农场与生活模拟 | [Farming Engine](https://assetstore.unity.com/packages/templates/systems/farming-engine-191881) | 包含种植、牲畜、背包、制作、建造和存档系统，适合农场经营原型。复杂经济、日历和长周期模拟通常需要扩展数据模型。 |
 | 三消益智 | [MK Match-3 Kit](https://assetstore.unity.com/packages/templates/systems/mk-match-3-kit-candy-sweet-game-template-275837) | 完整三消模板，商品介绍列有多个关卡、地图、编辑器、道具及移动端变现功能。适合快速验证经典交换消除玩法；检查目标平台 SDK 和变现组件。 |
-| 传统格子 Roguelike | [Ultimate Roguelike Framework](https://assetstore.unity.com/packages/tools/game-toolkits/ultimate-roguelike-framework-traditional-roguelike-starter-kit-363050) | 面向 Unity 6 的网格制 Roguelike 基础，适合回合制移动、地牢探索和单局流程。动作型 Roguelite 通常更适合从角色控制或俯视角框架开始。 |
+| 传统格子 Roguelike | [Turn Based Strategy Framework](https://assetstore.unity.com/packages/templates/systems/turn-based-strategy-framework-50282) | 提供方格与六边形网格、寻路、回合制战斗、特殊能力及 AI，支持 2D 和 3D。适合作为传统格子玩法的基础；地牢生成、探索、物品与单局规则需按项目扩展。采用前核对 Unity 版本兼容性，并按技能入口要求提供插件文件。 |
 | 卡牌构筑、卡牌 Roguelike | [Game Card System](https://assetstore.unity.com/packages/templates/systems/game-card-system-gcs-396692) | 提供卡牌战斗运行时、统一数据管理和 FlowGraph 可视化编辑，适合卡牌构筑和战斗玩法。复杂规则、服务器验证和牌组平衡仍由项目实现。 |
 | 音乐节奏游戏 | [Rhythm Game Starter](https://www.rhythm.game/) | 提供 MIDI 导入、谱面制作和序列编辑工具，并按音频时钟同步节奏。适合轨道式和下落式音游；针对目标设备测量输入延迟并提供玩家校准。 |
 
