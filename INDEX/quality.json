@@ -24075,6 +24075,26 @@
       }
     },
     {
+      "name": "unity-leader",
+      "path": "07-productivity/unity-leader/SKILL.md",
+      "quality": {
+        "review_status": "unreviewed",
+        "last_reviewed": null,
+        "source_type": "native",
+        "source_freshness": "unknown",
+        "license_confidence": "declared",
+        "dependencies": {
+          "skills": [
+            "unity-game-developer"
+          ],
+          "tools": []
+        },
+        "capabilities": [],
+        "maturity": "stable",
+        "security_risk": "unknown"
+      }
+    },
+    {
       "name": "unreal-engine-cpp",
       "path": "06-creative/unreal-engine-cpp/SKILL.md",
       "quality": {

@@ -4488,6 +4488,13 @@
       "status": "deprecated"
     },
     {
+      "id": "unity-leader",
+      "title": "Unity 开发任务组织",
+      "domain": "协作/pm",
+      "level": "进阶",
+      "status": "stable"
+    },
+    {
       "id": "vendor-evaluation",
       "title": "供应商评估决策",
       "domain": "协作/knowledge",
@@ -24741,6 +24748,11 @@
       "type": "combines_with"
     },
     {
+      "from": "unity-game-developer",
+      "to": "unity-leader",
+      "type": "combines_with"
+    },
+    {
       "from": "unreal-engine-cpp",
       "to": "unity-game-developer",
       "type": "related"
@@ -26873,6 +26885,16 @@
     {
       "from": "technical-change-tracker",
       "to": "postmortem-writer",
+      "type": "combines_with"
+    },
+    {
+      "from": "unity-leader",
+      "to": "unity-game-developer",
+      "type": "requires"
+    },
+    {
+      "from": "unity-leader",
+      "to": "unity-game-developer",
       "type": "combines_with"
     },
     {

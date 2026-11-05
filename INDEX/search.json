@@ -29726,7 +29726,7 @@
       "跨平台打包",
       "Netcode"
     ],
-    "description": "当用 Unity 6 LTS 开发/优化跨平台游戏，需要选渲染管线、写高性能 C#、Profiler 调优、Addressables 资源管理或多平台打包时使用；做出可落地的架构与优化方案；不适用于纯美术/关卡设计、非 Unity 引擎（UE/Godot/Cocos）、或后端服务开发；触发词：Unity、URP、HDRP、Shader Graph、DOTS、Addressables、卡顿优化、跨平台打包。",
+    "description": "在 Unity 项目中设计、实现、调试或审查游戏系统、场景与界面。用于 Unity C# 开发、可视化 Scene 与 uGUI 制作、插件框架选型、性能、资源、联网和平台构建。",
     "path": "06-creative/unity-game-developer/SKILL.md",
     "quality": {
       "review_status": "unreviewed",
@@ -32979,6 +32979,44 @@
       "security_risk": "unknown"
     },
     "deprecate_reason": "Original upstream skill ID was not found during the 2026-09-16 source audit; retained as a historical archive with no replacement."
+  },
+  {
+    "name": "unity-leader",
+    "title": "Unity 开发任务组织",
+    "vol": "07-productivity",
+    "domain": "协作/pm",
+    "level": "进阶",
+    "status": "stable",
+    "tags": [
+      "unity",
+      "game-dev",
+      "planning",
+      "delivery"
+    ],
+    "triggers": [
+      "Unity Leader",
+      "Unity 开发计划",
+      "Unity 任务组织",
+      "Unity 交付安排"
+    ],
+    "description": "当明确要求组织 Unity 开发任务、安排跨模块实施与交付，或选择以 Leader 管理独立 Unity 任务时使用；形成适度的范围、实施安排和验收记录；已有 Trellis 等任务管理机制时沿用现行机制；具体编码与资产制作使用 unity-game-developer；触发词：Unity Leader、Unity 开发计划、Unity 任务组织、Unity 交付安排。",
+    "path": "07-productivity/unity-leader/SKILL.md",
+    "quality": {
+      "review_status": "unreviewed",
+      "last_reviewed": null,
+      "source_type": "native",
+      "source_freshness": "unknown",
+      "license_confidence": "declared",
+      "dependencies": {
+        "skills": [
+          "unity-game-developer"
+        ],
+        "tools": []
+      },
+      "capabilities": [],
+      "maturity": "stable",
+      "security_risk": "unknown"
+    }
   },
   {
     "name": "vendor-evaluation",

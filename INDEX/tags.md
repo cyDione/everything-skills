@@ -2902,6 +2902,9 @@
 ### `defuddle`
 - [`defuddle-web-extract`](../10-platform/defuddle-web-extract/SKILL.md) — Defuddle 网页正文提取为 Markdown
 
+### `delivery`
+- [`unity-leader`](../07-productivity/unity-leader/SKILL.md) — Unity 开发任务组织
+
 ### `demand-letter`
 - [`demand-letter-drafter`](../09-verticals/demand-letter-drafter/SKILL.md) — 索赔函起草
 - [`inbound-demand-letter-triage`](../09-verticals/inbound-demand-letter-triage/SKILL.md) — 来函索赔分级评估
@@ -4359,6 +4362,7 @@
 
 ### `game-dev`
 - [`unity-game-developer`](../06-creative/unity-game-developer/SKILL.md) — Unity 游戏开发
+- [`unity-leader`](../07-productivity/unity-leader/SKILL.md) — Unity 开发任务组织
 
 ### `gameday`
 - [`chaos-engineering-runner`](../02-engineering/chaos-engineering-runner/SKILL.md) — 混沌工程实验设计
@@ -7688,6 +7692,7 @@
 
 ### `planning`
 - [`task-decomposition-planner`](../07-productivity/task-decomposition-planner/SKILL.md) — 任务拆解与依赖编排
+- [`unity-leader`](../07-productivity/unity-leader/SKILL.md) — Unity 开发任务组织
 
 ### `platform`
 - [`ai-native-cli-design`](../10-platform/ai-native-cli-design/SKILL.md) — 面向 AI 智能体的 CLI 设计规范
@@ -10861,6 +10866,7 @@
 
 ### `unity`
 - [`unity-game-developer`](../06-creative/unity-game-developer/SKILL.md) — Unity 游戏开发
+- [`unity-leader`](../07-productivity/unity-leader/SKILL.md) — Unity 开发任务组织
 
 ### `unix-tools`
 - [`busybox-on-windows`](../10-platform/busybox-on-windows/SKILL.md) — Windows 上运行 BusyBox UNIX 工具

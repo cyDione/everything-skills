@@ -2,7 +2,7 @@
 
 > 本文件由 scripts/build-index.mjs 自动生成，请勿手改。
 
-共 1114 条技能。
+共 1115 条技能。
 
 ## 卷〇 · 通用
 
@@ -672,6 +672,7 @@
 - [`product-manager-toolkit`](../07-productivity/product-manager-toolkit/SKILL.md) — 产品经理工具箱（RICE/PRD）　`协作/pm` · 进阶
 - [`strategic-alignment-cascader`](../07-productivity/strategic-alignment-cascader/SKILL.md) — 战略对齐自上而下级联　`协作/pm` · 进阶
 - [`task-decomposition-planner`](../07-productivity/task-decomposition-planner/SKILL.md) — 任务拆解与依赖编排　`协作/pm` · 进阶
+- [`unity-leader`](../07-productivity/unity-leader/SKILL.md) — Unity 开发任务组织　`协作/pm` · 进阶
 
 ## 卷八 · 安全
 
