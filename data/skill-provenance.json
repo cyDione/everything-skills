@@ -6,7 +6,7 @@
   "summary": {
     "path-unresolved": 647,
     "fixed-reference": 436,
-    "native": 14,
+    "native": 15,
     "ambiguous-fixed-candidates": 11,
     "snapshot-unavailable": 5,
     "needs-review": 1
@@ -19249,7 +19249,7 @@
     {
       "name": "unity-game-developer",
       "local_path": "06-creative/unity-game-developer/SKILL.md",
-      "local_sha256": "90cfe108cfa7229cb752c377071b3187d0954319d16a2d872bad19bfe9bc11a3",
+      "local_sha256": "a1f8808e8d4ba3c9cb5bd064646fb05f2203e6828686a68d7964aacb578edd63",
       "kind": "curated",
       "declared_license": "MIT",
       "source_repository": "sickn33/agentic-awesome-skills",
@@ -21401,6 +21401,14 @@
         "ledger": "data/historical-origin-investigation-2026-10-23.json",
         "record_name": "technical-change-tracker"
       }
+    },
+    {
+      "name": "unity-leader",
+      "local_path": "07-productivity/unity-leader/SKILL.md",
+      "local_sha256": "8f2281d9c4c6eee13102fd280bdf40410354621c8c155ff6365831f063560ad3",
+      "kind": "native",
+      "declared_license": "CC-BY-4.0",
+      "origin_revision_status": "native-repository-history"
     },
     {
       "name": "vendor-evaluation",
@@ -37907,5 +37915,5 @@
       }
     }
   ],
-  "refreshed_at": "2026-11-02T09:25:15.472Z"
+  "refreshed_at": "2026-11-05T06:07:42.500Z"
 }
