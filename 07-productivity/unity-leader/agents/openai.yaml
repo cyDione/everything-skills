@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unity 开发任务组织"
+  short_description: "组织 Unity 任务的范围、实施、审查与交付，并兼容现有项目管理机制"
+  default_prompt: "使用 $unity-leader 组织本次 Unity 任务，沿用现有任务机制，并结合 $unity-game-developer 确定专业实现与验证要求。"
