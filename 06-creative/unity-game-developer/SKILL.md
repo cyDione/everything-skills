@@ -1,7 +1,7 @@
 ---
 name: unity-game-developer
 title: Unity 游戏开发
-description: 在 Unity 6 LTS 中开发或优化跨平台游戏，处理架构选型、渲染、性能、资源管理、联机和打包时使用；触发词：Unity、URP、HDRP、DOTS、Addressables、Unity 卡顿优化、跨平台打包、Netcode。
+description: 在 Unity 项目中设计、实现、调试或审查游戏系统、场景与界面。用于 Unity C# 开发、可视化 Scene 与 uGUI 制作、插件框架选型、性能、资源、联网和平台构建。
 domain: 创意/av
 triggers: [Unity, URP, HDRP, Shader Graph, DOTS, ECS, Addressables, Unity 卡顿优化, 跨平台打包, Netcode]
 tags: [unity, game-dev, csharp, performance, av, creative]
@@ -18,7 +18,7 @@ source_license: MIT
 ---
 ## 适用范围
 
-面向 Unity 6 LTS 项目的运行时与编辑器开发，涵盖场景和界面制作、游戏框架选型、渲染管线、C# 性能、资源管理、联机与跨平台构建。非 Unity 引擎、纯美术关卡设计，以及通用 C# 后端任务由对应技能处理。性能与平台结论须通过目标硬件测试确认。
+面向 Unity 项目的运行时与编辑器开发，涵盖 C# 游戏系统、场景和界面制作、框架选型、渲染、性能、资源管理、联网与平台构建。非 Unity 引擎、纯美术关卡设计，以及通用 C# 后端任务由对应技能处理。性能与平台结论须通过目标硬件测试确认。
 
 ## 插件依赖门槛
 
@@ -28,15 +28,27 @@ source_license: MIT
 
 ## 按任务读取参考
 
-先按任务读取对应参考文档；跨领域任务读取所有相关文档。框架和插件推荐属于资料选型，不代表插件已安装；开始依赖其实现前仍须执行上方门槛。
+先检查 Unity 工程根目录中的 `Assets/`、`Packages/`、`ProjectSettings/`，并读取项目指令、当前实现和 Git 状态。确认本次目标平台、Unity 与包版本、已有资产和玩法契约；不把上层文档仓库当作 Unity 工程。小型且范围明确的任务可以直接推进。影响公开接口、序列化数据或多个系统的改动，先形成与范围相称的方案；未定玩法只阻塞依赖该决定的部分。
+
+按任务读取相应参考；跨领域任务读取所有相关参考。入口只保存共同要求与路由，详细规则按需载入。
 
 | 任务 | 阅读 |
 |---|---|
-| 场景层级、GameObject 组织、MonoBehaviour 挂载、uGUI、Prefab、界面布局 | [场景与 UI 制作规范](references/scene-ui-authoring.md) |
+| 文件夹组织、场景层级、组件宿主、uGUI、Prefab 和可视化装配 | [场景与 UI 制作规范](references/scene-ui-authoring.md) 与 [资产交接规范](references/asset-handoff.md) |
+| C# 结构、状态所有权、生命周期、复用及正确性与必要性审查 | [架构与代码审查](references/architecture-and-review.md) |
+| Unity 或包 API 核验、测试选择、验证证据及交付状态 | [API 与验证证据](references/api-and-validation.md) |
 | 游戏类型对应的工具包、GameFramework、ET、QFramework、DOTS、联机方案 | [游戏框架选型](references/game-framework-selection.md) |
 | 渲染管线、Profiler 调优、Addressables、资源、测试、平台打包 | [性能与平台流程](references/performance-and-platforms.md) |
 
-完成 Unity 资产修改后，按所读文档中的检查项复核场景、Prefab、Inspector 引用和目标平台表现。输出方案时说明适用平台、主要取舍及尚待真机验证的项目。
+## 通用开发约束
+
+职责按项目需求分别归属于普通 C#、MonoBehaviour、ScriptableObject、Prefab、Scene 或 Editor 工具。保持内容定义、运行时状态、规则执行和表现的边界；选择已有可复用能力，不默认增加 ECS、依赖注入、事件总线、全局单例、Addressables 或联网框架。配置字段的 Inspector 说明包含准确语义、单位、范围和默认值；未知的玩法数值标记待定，不臆造。
+
+尊重既有 Scene、Prefab、Inspector、序列化资产及其所有者。场景行为组件有明确的 GameObject 宿主，结构稳定的 UI 保存在可视化 Scene 或 Prefab 中；运行时逻辑使用明确引用。仅当运行时数据决定对象数量或算法布局时动态实例化对象，并将稳定结构留在 Prefab。操作资源时保留 `.meta` 与 GUID 引用，不重序列化无关资产。
+
+第三方框架推荐属于资料选型，不代表项目已安装。任务要求 Unity 插件或实现依赖某个第三方插件时，必须执行上方插件依赖门槛：缺少可检查的 Unity 工程或无法确认所需插件文件时，暂停依赖插件的实现，说明插件名称并请求提供 Unity 工程或插件文件。禁止仿写插件 API、改用 Unity 原生实现绕过依赖，或自行编写插件替代品；可继续独立于该插件的资料核查与接入说明。
+
+实现及实质性交接遵循：明确契约、控制实现范围、分别进行正确性和必要性审查、按影响范围验证、依证据报告。Unity 资产修改后，复核 Scene 与 Prefab 层级、组件宿主、Inspector 引用和目标平台表现。交付时区分静态检查、Unity 编译、自动测试、编辑器验证、Player 构建和设备验证；未执行的验证明确标记未执行。
 
 ## 互见
 
@@ -44,4 +56,4 @@ source_license: MIT
 - combines_with：以本文件 frontmatter 的 `combines_with` 列表为准。
 
 ---
-采编自 sickn33/antigravity-awesome-skills（MIT 许可）；适配重写并按主题拆分为入口与参考文档，聚焦 Unity 6 LTS 实践。
+基于 Unity 游戏开发参考，结合 Unity 主程规范整理。入口按任务路由至场景制作、架构审查、API 验证、框架选型与平台流程参考。
