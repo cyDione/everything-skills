@@ -1,0 +1,52 @@
+name: unity-index-repair
+
+on:
+  push:
+    branches: [codex/unity-leader-developer-split]
+    paths: [.github/workflows/unity-index-repair.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run provenance:refresh
+      - run: node scripts/build-all.mjs --lang=en
+      - run: npm run check:distribution
+      - run: npm test
+      - name: Package changed generated files
+        shell: python
+        run: |
+          import base64, hashlib, json, os, pathlib, subprocess
+          allowed = ['INDEX', '.claude-plugin/marketplace.json', 'AGENTS.md', 'CLAUDE.md', 'GEMINI.md', 'gemini-extension.json', 'README.md', 'assets/brand', 'data/skill-provenance.json']
+          names = subprocess.check_output(['git', 'diff', '--name-only', '-z', '--', *allowed]).decode().split('\0')
+          names += subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard', '-z', '--', *allowed]).decode().split('\0')
+          files = []
+          for name in sorted(set(filter(None, names))):
+              p = pathlib.Path(name)
+              if not p.is_file() or p.is_symlink():
+                  raise SystemExit('Expected regular generated file: ' + name)
+              data = p.read_bytes()
+              files.append({'path': name, 'sha256': hashlib.sha256(data).hexdigest(), 'content_base64': base64.b64encode(data).decode()})
+          if not files:
+              raise SystemExit('No generated changes')
+          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'unity-generated'
+          out.mkdir()
+          (out / 'generated.json').write_text(json.dumps({'source_sha': os.environ['GITHUB_SHA'], 'files': files}, ensure_ascii=False), encoding='utf-8')
+          print('Generated changed files:', len(files))
+          for item in files:
+              print(item['path'])
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unity-generated-${{ github.sha }}
+          path: ${{ runner.temp }}/unity-generated/generated.json
+          retention-days: 1
