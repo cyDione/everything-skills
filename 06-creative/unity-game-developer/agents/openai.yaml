@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unity 游戏开发"
+  short_description: "Unity C#、可视化资产、框架选型与验证"
+  default_prompt: "使用 $unity-game-developer，按本次任务读取对应参考，核对 Unity 项目与目标版本，并分别报告实现、资产配置及验证状态。"
